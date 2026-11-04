@@ -66,7 +66,7 @@ int main(){
 }*/
 
 // Exercice 2
-
+/*
 #include <iostream>
 #include <string>
 #include <vector>
@@ -165,7 +165,7 @@ int main(){
 
     return 0;
 }
-/*
+*/
 // Exercice 3
 
 #include <iostream>
@@ -193,4 +193,4 @@ int main(){
     string nom;
 
     return 0;
-}*/
+}

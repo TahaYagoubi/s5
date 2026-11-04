@@ -1,3 +1,5 @@
+// EXERCICE 1
+
 #include<iostream>
 #include<string>
 
@@ -30,6 +32,7 @@ return 0;
 }
 
 // EXERCICE 2 
+
 #include<iostream>
 #include<iomanip>
 
@@ -101,7 +104,9 @@ float montant;
  #include <iostream>
  #include <cstdlib>
  #include <ctime>
-    
+
+    // exercice 3
+
     using namespace std;
  const int NB_MIN = 1;
  const int NB_MAX = 100;
@@ -165,3 +170,162 @@ float montant;
             jouePartie();
             return 0;
         }
+
+        // exercice 4
+
+        #include <iostream>
+        #include <iomanip>
+        #include <string>
+        using namespace std;
+
+        float saisirNote(int numero){
+            float n;
+            do{
+                cout  << "Saisir la note" << numero << endl;  
+                cin >> n;
+            }while(n <= 0);
+            return n;
+        }
+        float calculerMoyenne(float n1, float n2, float n3){
+            return (n1 + n2 + n3)/3;
+        }
+        string calculerMention(float moyenne){
+            if(moyenne < 10){
+                return "echec";
+            }
+            else if(moyenne <= 12 ){
+                return "Passable";
+            }
+            else if(moyenne <= 14 ){
+                return "Assez bien";
+            }
+            else if(moyenne <= 16 ){
+                return "Bien";
+            }
+            else
+                return "Tres bien";
+            
+        }
+        int main(){
+            int n;
+            do{
+            cout << "Saisir le nombre des etudiants" << endl;
+            cin >> n;
+            }while(n <= 0);
+            cin.ignore();
+            string *noms = new string[n];
+            float *notes = new float[3 * n]; //tableau dynamique à une seule dimension, avec 3 notes
+            for(int i = 0 ; i < n ; i++){
+                    cout << "Nom de l'etudiant(char):" << i + 1 << endl;
+                    getline(cin , noms[i]); // ignorer les espaces entre les noms
+            }
+            for(int i = 0 ; i < n ; i++){
+                    cout  << "Notes de l'etudiant:" << noms[i] << endl;
+                     for(int j = 0; j < 3; j++) {
+                    notes[3*i + j] = saisirNote(j + 1);//notes[3*i + j] stocke cette valeur dans la bonne case.
+            }
+            }
+            
+            float somme = 0;
+            for(int i = 0 ; i < n ; i++){
+                    float Moyenne = calculerMoyenne(notes[3*i],notes[3*i + 1],notes[3*i + 2]);
+            
+            string Mention = calculerMention(Moyenne);
+            
+             cout << noms[i] << Mention << Moyenne << endl;
+             somme += Moyenne;
+            }
+            float moyenneClasse = somme / n;
+            cout << "Moyenne de la classe : " << moyenneClasse << endl;
+            delete[] noms;
+            delete[] notes;
+            return 0;
+        }
+
+        exercice 5
+
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+    const int Longuer_min = 8;
+
+    void compterCaracteres(string mdp, int &majuscules, int &miniscules, int &chiffres, int &speciaux){
+        majuscules = 0;
+    miniscules = 0;
+    chiffres = 0;
+    speciaux = 0;
+
+    for(int i = 0; i < mdp.length(); i++) {
+        if(isupper(mdp[i])) {
+            majuscules++;
+        }
+        if(islower(mdp[i])) {
+            miniscules++;
+        }
+        if(isdigit(mdp[i])) {
+            chiffres++;
+        }
+        if(!isalpha(mdp[i]) && !isdigit(mdp[i])) {
+            speciaux++;
+        }
+    }
+}
+    int compterCriteres(string mdp){
+        int critere = 0;
+        int critereisupper = 0;
+        int critereislower = 0;
+        int critereisdigit = 0;
+        int critereisalpha = 0;
+        compterCaracteres(mdp, critereisupper, critereislower, critereisdigit, critereisalpha);
+        if(mdp.length() >= Longuer_min){
+           critere ++;
+        }
+        if(critereisupper >= 1){
+            critere ++;
+        }
+        if(critereislower >= 1){
+            critere ++;
+        }
+        if(critereisdigit >= 1){
+            critere ++;
+        }
+        if(critereisalpha >= 1){
+            critere ++;
+        }
+        return critere;
+    
+    }
+    bool estRobuste(string mdp){
+        int critere = compterCriteres(mdp);
+        return critere == 5;
+    
+    }
+    string evaluerNiveau(string mdp){
+        int critere = compterCriteres(mdp);
+        if(critere == 5){
+            return "Fort";
+        }
+        if(critere >= 3 && critere <= 4){
+            return "Moyen";
+        }
+        if(critere >= 0 && critere <= 2){
+            return "Faible";
+        }
+        return mdp;
+    }
+
+    int main(){
+        string mdp;
+        while(estRobuste(mdp) == 0){
+            cout << "Saisir le MP:" << endl;
+            cin >> mdp;
+        }
+        cout << "Le niveau est:" << evaluerNiveau(mdp);
+        int majuscules ;
+        int miniscules ;
+        int chiffres ;
+        int speciaux ;
+        compterCaracteres(mdp, majuscules,  miniscules, chiffres, speciaux);
+    return 0;
+    }
