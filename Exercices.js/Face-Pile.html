@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Script externes</title>
+</head>
+<body>
+
+<p id="result">Clique sur le bouton pour jouer</p>
+<button id="flipBtn">Lancer la piece</button>
+
+<img id="coinImage" src="Pile.jpg" alt="piece" width="200">
+
+<p>
+    pile : <span id="scorePile">0</span>
+    face : <span id="scoreFace">0</span>
+</p>
+
+<script>
+const image_Pile = "Pile.jpg";
+const image_Face = "Face.jpg";
+
+const coinImg = document.getElementById("coinImage");
+const resultatel = document.getElementById("result");
+const flipBtn = document.getElementById("flipBtn");
+const ScorePile = document.getElementById("scorePile");
+const ScoreFace = document.getElementById("scoreFace");
+
+let PileCount = 0;
+let FaceCount = 0;
+
+function lancerPileouFace() {
+    const resultat = Math.random() < 0.5 ? "Pile" : "Face";
+
+    if (resultat === "Pile") {
+        coinImg.src = image_Pile;
+        resultatel.textContent = "Pile";
+        PileCount++;
+        ScorePile.textContent = PileCount;
+    }
+    else {
+        coinImg.src = image_Face;
+        resultatel.textContent = "Face";
+        FaceCount++;
+        ScoreFace.textContent = FaceCount;
+    }
+}
+
+flipBtn.addEventListener("click", lancerPileouFace);
+</script>
+
+</body>
+</html>
