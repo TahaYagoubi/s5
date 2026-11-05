@@ -181,16 +181,62 @@ void afficherFile(const list <string> &file){
     if(file.empty()){
         cout << "La file est vide" << endl;
     }
-    
-    list<string> :: const_iterator;
+    for (list<string> :: const_iterator it = file.begin(); it != file.end(); ++it)
+    cout << *it << endl;
 }
-void servirClient(list <string> &file, string &servi){
-
+bool servirClient(list <string> &file, string &servi){
+    if(file.empty()){
+        return false;
+    }
+    servi = file.front();
+    file.pop_front();
+    cout << servi << endl;
+    return true;
 }
 int main(){
     list<string> file;
     int choix;
     string nom;
+    string servi;
+    cout << "Saisir le nom du clien" << endl;
+    cin >> nom;
+    do{
+        afficherMenu();
+        cout << "Saisir le choix" << endl;
+        cin >> choix;
+        switch(choix){
 
+        case 1:
+        file.push_back(nom); 
+        cout << "Client arrive" << endl;
+        break;
+        
+        case 2:
+        file.push_front(nom);
+        break;
+
+        case 3:
+        int x = servirClient(file, servi);
+        cout << "Client servi" << x << endl;
+        break;
+
+        case 4:
+        cout << "File avant changement:" << endl;
+        afficherFile(file);
+        cout << "File apres changement:" << servirClient(file, servi) << endl;
+        break;
+
+        case 5:
+        afficherFile(file);
+        break;
+        
+        case 0:
+        cout << "Guichet fermet" << endl;
+        break;
+
+        default:
+        cout << "Choix invalide" << endl;
+    }
+    }while(choix != 0);
     return 0;
 }
