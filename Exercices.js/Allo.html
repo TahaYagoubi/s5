@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Liste deroulante</title>
+</head>
+<body>
+<form>
+<select id="liste">
+<option value="matin"> Matin</option>
+<option value="midi">Midi</option> <option value="soir">Soir</option>
+</select>
+<input
+type="text" 
+id="resultat" 
+size="40"
+value="Vous avez selectionne:">
+</form>
+<script>
+let liste = document.getElementById("liste");
+let resultat = document.getElementById("resultat");
+liste.addEventListener ("change", function (){
+resultat.value= "Vous avez selectionne:"+ liste.options[liste.selectedlndex].text;
+});
+</script>
+</body> </html>

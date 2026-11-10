@@ -27,7 +27,7 @@
  </html>// script.js
 document.getElementByld("go").onclick = () =>{
 const n = Math.floor(Math.random() * 100) + 1;
-document.getElementByld("out").textContent = "Nombre tiré : " + n; */-->\
+document.getElementByld("out").textContent = "Nombre tiré : " + n; 
 
  Exercice 2
 
@@ -39,7 +39,7 @@ document.getElementByld("out").textContent = "Nombre tiré : " + n; */-->\
  </head>
 
  <body>
-   <?php
+   <php
     $notes = array("do", "re", "mi", "fa", "sol", "la", "si", "do");
     echo implode(" ", $notes);
     $tableau[] = $notes;
