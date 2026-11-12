@@ -240,3 +240,42 @@ int main(){
     }while(choix != 0);
     return 0;
 }
+// exercice 4
+
+
+#include <iostream>
+#include <string>
+#include <list>
+#include <vector>
+
+using namespace std;
+
+void saisirListe(list <int> &liste){
+    
+    while(n < 0){
+    if(n == 0){
+         break;
+    }
+    if(n > 0){
+        cout << "Saisir les elements de la liste" << endl;
+        cin >> n;
+        liste.push_back(n);
+    }}
+}
+
+void afficherListe(const list<int> &liste, string titre){
+    cout << "Le titre et ses elements:" << saisirliste(liste) << endl;
+    cin >> titre;
+}
+
+void supprimerNegatifs(list <int> &liste){
+for (list <int> :: const_iterator it = liste.begin(); it != liste.end(); ++it){
+    cout << list.erase() << end.l;
+}
+}
+
+int main(){
+    list<int> liste;
+
+    return 0;
+}
