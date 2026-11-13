@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = 'utf-8'>
+    <titre>Facturation</titre>
+</head>  
+    <input id = "nom" type = "text" placeholder = "Nom du client">
+    <label for ="Produit"> Produit </label> 
+    <select id = "Produit">
+        <option name = "Clavier"> Clavier </option>
+        <option name = "Souris"> Souris </option>
+        <option name = "Ecran"> Ecran </option>
+
+    </select>
+
+    <input id = "prixUnitaire" type = "number">
+    <input id = "Quantite" type = "number">
+
+    <p id = "total"></p>
+    <p id = "Netapayer"></p>
+
+    <button id = "btn"> Calculer la facture</button>
+
+<script>
+    
+    const Nom = document.getElementById("nom")
+    const Netapayer = document.getElementById("Netapayer")
+    const total =document.getElementById("total")
+
+function calculerlaFacture(){
+
+    let Produit = document.getElementById('Produit').value
+    let prixUnitaire = parseFloat(document.getElementById("prixUnitaire").value)
+    let Quantite = parseInt(document.getElementById("Quantite").value)
+
+    let Remise = 0.1;
+
+    if(Nom.value.trim() === ""){
+        alert("Nom obligatoire");
+        return;
+    }
+
+    if(isNaN(Quantite) || Quantite <= 0){
+        alert("Pas d'elements")
+        return
+    }
+
+    if(isNaN(prixUnitaire) || prixUnitaire < 0){
+        alert("prix Invalide")
+        return
+    }
+    
+    let MontantTot
+    MontantTot = prixUnitaire * Quantite
+    total.textContent = "Le total:" + MontantTot
+
+    if(total >= 500){
+        Netapayer.textConent = "Net a payer avec remise:" + total - (total * Remise)
+    }
+    else{
+        Netapayer.textConent = "Net a payer" + total
+    }
+}
+btn.addEventListener("click", calculerlaFacture)
+</script>
+
+</html>

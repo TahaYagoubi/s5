@@ -23,10 +23,10 @@ const resultat = document.getElementById("resultat")
 
 function Formulairedinscription(){
 
-const nom = document.getElementById("nom").value
-const prenom = document.getElementById("prenom").value
-const age = document.getElementById("age").value
-const genre =document.querySelector('genre')
+let nom = document.getElementById("nom").value
+let prenom = document.getElementById("prenom").value
+let age = document.getElementById("age").value
+let genre =document.querySelector('genre')
 
 if(nom.trim() === " " || prenom.trim === " " || age === " " || btn === " "){
     alert("Erreur : Champ vide");
