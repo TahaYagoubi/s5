@@ -101,3 +101,21 @@ document.getElementByld("out").textContent = "Nombre tiré : " + n;
  </body>
 
  </html>
+ 
+ <!-- exercice 5 -->
+
+ <!DOCTYPE html>
+ <html lang="francais">
+
+ <head>
+
+ </head>
+
+ <body>
+   <?php
+      $index.php
+      $conversion.php
+    ?>
+ </body>
+
+ </html>
