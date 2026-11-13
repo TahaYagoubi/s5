@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Insciption Etudiant</title>
+</head>
+<body>
+<input type = "text" id = "nom" placeholder = "Votre nom">
+<input type = "text" id = "prenom" placeholder = "Votre prenom">
+<input type =" number" id = "age" placeholde = "Votre age">
+
+<button id= "btn"> Afficher les informations</button>
+<p>
+    <input type = "radio" id = genre > homme 
+    <input type = "radio" id = genre > femme
+</p>
+<p id="resultat"></p>
+
+<script>
+
+const btn = document.getElementById("btn")
+const resultat = document.getElementById("resultat") 
+
+function Formulairedinscription(){
+
+const nom = document.getElementById("nom").value
+const prenom = document.getElementById("prenom").value
+const age = document.getElementById("age").value
+const genre =document.querySelector('genre')
+
+if(nom.trim() === " " || prenom.trim === " " || age === " " || btn === " "){
+    alert("Erreur : Champ vide");
+    return;
+}
+
+age = parseINT(age)
+
+if(isNaN(age) || age < 0){
+    alert("Age invalide")
+    return;
+}
+
+
+let statut
+    if(age < 18){
+    statut = "Mineur"
+    }
+    else{
+    statut = "Majeur"
+    }
+    resultat.textContent = "nom:" + nom + " " + "prenom" + prenom + " " + "age:" + age + " " + "genre:" + 
+    " " + genre + "statue" + statut;
+}
+btn.addEventListener = ("click",  Formulairedinscription)
+
+</script>
+
+</body>
+</html>
+ 
